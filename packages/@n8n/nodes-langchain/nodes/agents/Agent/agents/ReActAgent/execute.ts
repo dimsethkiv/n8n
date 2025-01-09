@@ -40,6 +40,7 @@ export async function reActAgentAgentExecute(
 		suffixChat?: string;
 		humanMessageTemplate?: string;
 		returnIntermediateSteps?: boolean;
+		maxIterations?: number;
 	};
 	let agent: ChatAgent | ZeroShotAgent;
 
@@ -60,6 +61,7 @@ export async function reActAgentAgentExecute(
 		agent,
 		tools,
 		returnIntermediateSteps: options?.returnIntermediateSteps === true,
+		maxIterations: options.maxIterations ?? 10,
 	});
 
 	const returnData: INodeExecutionData[] = [];
